@@ -1,3 +1,22 @@
-#!/usr/bin/ruby
+# frozen_string_literal: false
 
-puts 'hello world!'
+# rubocop:disable Metrics/MethodLength
+# !/usr/bin/ruby
+
+def new_player
+  puts 'Welcome to TIC TAC TOE game'
+  print "Player 1 select a symbol 'x' or 'o': "
+  player_symbol = gets.chomp
+
+  case player_symbol
+  when 'x'
+    puts "Player 1 shall play with the symbol 'x'\nPlayer 2 shall play with the symbol 'o'"
+  when 'o'
+    puts "Player 1 shall play with the symbol 'o'\nPlayer 2 shall play with the symbol 'x'"
+  else
+    puts "You've entered an invalid symbol, try again!!"
+    new_player
+  end
+end
+
+# rubocop:enable Metrics/MethodLength
