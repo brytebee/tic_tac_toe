@@ -80,5 +80,29 @@ end
 def game_over
   puts 'Game Over!'
 end
+
+def replay
+  puts 'Do you want to play again?'
+  puts '- - - "y" for (yes!) "n" for (no!)'
+  reply = gets.chomp
+  puts
+  case reply
+  when 'y'
+    puts 'New game!'
+    new_player
+    # move(board, 'o') Create a new instance of the board
+  when 'n'
+    puts 'Bye!'
+    game_over
+  else
+    puts 'Invalid! Retry with "y" or "n"'
+    replay
+  end
+end
+
 # rubocop:enable Style/StringLiterals
 # rubocop:enable Metrics/MethodLength
+
+new_player
+move(board, 'o')
+replay
