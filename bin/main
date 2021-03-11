@@ -32,5 +32,17 @@ def display_board(board)
   puts "||-----------||"
 end
 
+def move(board, player_symbol)
+  move_size = 1
+  while move_size <= 9
+    puts 'Enter an available move between 1 and 9'
+    rotate_player_turn(player_symbol)
+    make_move = player_input(board, player_symbol)
+    board[Integer(make_move) - 1] = player_symbol
+    move_size += 1
+    display_board(board)
+    player_symbol = player_symbol == 'x' ? 'o' : 'x'
+  end
+end
 # rubocop:enable Style/StringLiterals
 # rubocop:enable Metrics/MethodLength
