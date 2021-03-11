@@ -62,5 +62,23 @@ def player_input(board, player_symbol)
     move(board, player_symbol)
   end
 end
+
+def win(turn)
+  puts 'Game Over!'
+  if turn
+    puts 'Player 1 wins!'
+  else
+    puts 'Player 2 wins!'
+  end
+end
+
+def draw
+  puts 'Game Over!'
+  print 'It\'s a draw'
+end
+
+def game_over
+  puts 'Game Over!'
+end
 # rubocop:enable Style/StringLiterals
 # rubocop:enable Metrics/MethodLength
