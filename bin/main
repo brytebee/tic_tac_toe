@@ -44,5 +44,23 @@ def move(board, player_symbol)
     player_symbol = player_symbol == 'x' ? 'o' : 'x'
   end
 end
+
+def rotate_player_turn(player_symbol)
+  player_symbol == 'o' ? 'Player 2: Your turn' : 'Player 1: Your turn'
+end
+
+def player_input(board, player_symbol)
+  make_move = gets.chomp.to_i
+  if make_move <= 9 && make_move.positive?
+    if board[make_move - 1] == 'x' || board[make_move - 1] == 'o'
+      puts 'already selected!'
+      move(board, player_symbol)
+    end
+    make_move
+  else
+    puts 'Invalid input: enter number between 1 and 9'
+    move(board, player_symbol)
+  end
+end
 # rubocop:enable Style/StringLiterals
 # rubocop:enable Metrics/MethodLength
